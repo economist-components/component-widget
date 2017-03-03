@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Iframe Content</title>
+  </head>
+  <body>
+    Hello iframe!
+  <script type="text/javascript">
+    var targetOrigin = (window.location !== window.parent.location)
+      ? document.referrer
+      : document.location;
+    window.parent.postMessage({
+      type: 'RESIZE',
+      payload: {
+        height: '700',
+        origin: document.location.href
+      } }, targetOrigin);
+  </script>
+  </body>
+</html>
