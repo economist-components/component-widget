@@ -29,7 +29,7 @@ export default class Iframe extends React.Component {
   }
 
   render() {
-    const { src, width } = this.props;
+    const { src, width, scrollStatus } = this.props;
     return (
       <iframe
         className="widget-iframe"
@@ -37,6 +37,7 @@ export default class Iframe extends React.Component {
         src={src}
         width={width}
         frameBorder="0"
+        scrolling={scrollStatus}
       />
     );
   }
@@ -46,5 +47,6 @@ if (process.env.NODE_ENV !== 'production') {
   Iframe.propTypes = {
     src: React.PropTypes.string,
     width: React.PropTypes.string,
+    scrollStatus: React.PropTypes.string,
   };
 }
