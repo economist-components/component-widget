@@ -3,7 +3,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 export default class Iframe extends React.Component {
-
   constructor(props) {
     super(props);
     this.receiveMessage = this.receiveMessage.bind(this);
@@ -41,6 +40,10 @@ export default class Iframe extends React.Component {
     );
   }
 }
+
+Iframe.defaultProps = {
+  scrollStatus: 'auto',
+};
 
 if (process.env.NODE_ENV !== 'production') {
   Iframe.propTypes = {
