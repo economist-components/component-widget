@@ -1,8 +1,8 @@
 /* eslint-env browser */
 import React from 'react';
+import classNames from 'classnames';
 
 export default class Iframe extends React.Component {
-
   constructor(props) {
     super(props);
     this.receiveMessage = this.receiveMessage.bind(this);
@@ -29,22 +29,28 @@ export default class Iframe extends React.Component {
   }
 
   render() {
-    const { src, width } = this.props;
     return (
       <iframe
-        className="widget-iframe"
+        {...this.props}
+        className={classNames('widget-iframe', this.props.className)}
         ref={this.saveRef}
-        src={src}
-        width={width}
         frameBorder="0"
+        scrolling={this.props.scrollStatus}
       />
     );
   }
 }
 
+Iframe.defaultProps = {
+  scrollStatus: 'auto',
+};
+
 if (process.env.NODE_ENV !== 'production') {
   Iframe.propTypes = {
     src: React.PropTypes.string,
     width: React.PropTypes.string,
+    height: React.PropTypes.string,
+    className: React.PropTypes.string,
+    scrollStatus: React.PropTypes.string,
   };
 }
