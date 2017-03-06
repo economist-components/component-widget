@@ -118,6 +118,7 @@
     "chai": "^3.5.0",
     "chai-enzyme": "^0.4.2",
     "chai-spies": "^0.7.1",
+    "classnames": "^2.2.5",
     "coveralls": "^2.11.9",
     "enzyme": "^2.2.0",
     "eslint": "^2.8.0",
