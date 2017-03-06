@@ -30,16 +30,12 @@ export default class Iframe extends React.Component {
   }
 
   render() {
-    const { src, width, height, className, scrollStatus } = this.props;
     return (
       <iframe
-        className={classNames('widget-iframe', className)}
+        {...this.props}
+        className={classNames('widget-iframe', this.props.className)}
         ref={this.saveRef}
-        src={src}
-        width={width}
-        height={height}
         frameBorder="0"
-        scrolling={scrollStatus}
       />
     );
   }
