@@ -35,7 +35,7 @@
     "build:js": "babel $npm_package_directories_src -d $npm_package_directories_lib --source-maps inline",
     "predoc": "mkdir -p $npm_package_directories_site",
     "doc": "npm-run-all --parallel doc:*",
-    "doc:assets": "npm-assets $npm_package_directories_site",
+    "doc:assets": "npm-assets $npm_package_directories_site && cp $npm_package_directories_src/widget.html $npm_package_directories_site",
     "doc:css": "postcss $npm_package_config_doc_css_options -o $npm_package_directories_site/bundle.css $npm_package_directories_src/example.css",
     "doc:html": "hbs -D package.json -H @economist/doc-pack -o $npm_package_directories_site $npm_package_config_doc_html_files",
     "doc:js": "browserify $npm_package_config_doc_js_options $npm_package_directories_test/*.js -o $npm_package_directories_site/bundle.js",
@@ -100,7 +100,10 @@
     ]
   },
   "dependencies": {
-    "react": "^0.14.8||^15.0.0"
+    "prop-types": "^15.0.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.8||^15.0.0||^16.0.0"
   },
   "devDependencies": {
     "@economist/doc-pack": "^1.0.7",
@@ -116,11 +119,12 @@
     "browserify": "^13.0.0",
     "browserify-istanbul": "^2.0.0",
     "chai": "^3.5.0",
-    "chai-enzyme": "^0.4.2",
+    "chai-enzyme": "^1.0.0-beta.0",
     "chai-spies": "^0.7.1",
     "classnames": "^2.2.5",
     "coveralls": "^2.11.9",
-    "enzyme": "^2.2.0",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.2",
     "eslint": "^2.8.0",
     "eslint-config-strict": "^8.5.1",
     "eslint-config-strict-react": "^8.0.1",
@@ -149,8 +153,8 @@
     "postcss-import": "^8.1.0",
     "postcss-reporter": "^1.3.3",
     "postcss-url": "^5.1.1",
-    "react-addons-test-utils": "^0.14.8||^15.0.0",
-    "react-dom": "^0.14.8||^15.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "semantic-release": "^4.3.5",
     "stylelint": "^6.2.2",
     "stylelint-config-strict": "^5.0.0",

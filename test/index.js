@@ -1,9 +1,13 @@
 import 'babel-polyfill';
 import Widget from '../src';
 import React from 'react';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import { mount } from 'enzyme';
+
+Enzyme.configure({ adapter: new Adapter() });
 chai.use(chaiEnzyme()).should();
 describe('Widget', () => {
 

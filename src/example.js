@@ -8,7 +8,7 @@ export default (
     justifyContent: 'center',
   }}>
     <Widget iframe={{
-      src: 'http://127.0.0.1:8081/widget.html',
+      src: 'http://127.0.0.1:8080/widget.html',
       width: '595px',
     }} />
   </div>
