@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export default class Iframe extends React.Component {
@@ -29,13 +30,16 @@ export default class Iframe extends React.Component {
   }
 
   render() {
+    const { src, width, height, className, scrollStatus } = this.props;
     return (
       <iframe
-        {...this.props}
-        className={classNames('widget-iframe', this.props.className)}
+        src={src}
+        width={width}
+        height={height}
+        className={classNames('widget-iframe', className)}
         ref={this.saveRef}
         frameBorder="0"
-        scrolling={this.props.scrollStatus}
+        scrolling={scrollStatus}
       />
     );
   }
@@ -47,10 +51,10 @@ Iframe.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
   Iframe.propTypes = {
-    src: React.PropTypes.string,
-    width: React.PropTypes.string,
-    height: React.PropTypes.string,
-    className: React.PropTypes.string,
-    scrollStatus: React.PropTypes.string,
+    src: PropTypes.string,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    className: PropTypes.string,
+    scrollStatus: PropTypes.string,
   };
 }

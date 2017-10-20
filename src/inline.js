@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import load from 'promisescript';
 
 export default class Inline extends React.Component {
@@ -22,7 +23,7 @@ export default class Inline extends React.Component {
 
 if (process.env.NODE_ENV !== 'production') {
   Inline.propTypes = {
-    script: React.PropTypes.string,
-    stylesheet: React.PropTypes.string,
+    script: PropTypes.string,
+    stylesheet: PropTypes.string,
   };
 }

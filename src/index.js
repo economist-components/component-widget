@@ -1,6 +1,7 @@
 /* eslint-env browser */
 import React from 'react';
 import Iframe from './iframe';
+import PropTypes from 'prop-types';
 
 export default function Widget({ strategy, iframe }) {
   if (strategy === 'iframe') {
@@ -15,7 +16,7 @@ Widget.defaultProps = {
 
 if (process.env.NODE_ENV !== 'production') {
   Widget.propTypes = {
-    strategy: React.PropTypes.oneOf([ 'iframe' ]),
-    iframe: React.PropTypes.shape(Iframe.propTypes),
+    strategy: PropTypes.oneOf([ 'iframe' ]),
+    iframe: PropTypes.shape(Iframe.propTypes),
   };
 }
