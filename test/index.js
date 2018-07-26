@@ -27,6 +27,10 @@ describe('Widget', () => {
       widget.should.have.tagName('iframe');
       widget.should.have.className('widget-iframe');
     });
+    it('should contain id only when defined by props', () => {
+      mount(<Widget iframe={{ id: 'primary' }} />).find('.widget-iframe').should.have.prop('id', 'primary');
+      widget.should.not.have.property('id');
+    });
   });
 
 });
