@@ -30,11 +30,10 @@ export default class Iframe extends React.Component {
   }
 
   render() {
-    const { src, width, height, className, scrollStatus, id } = this.props;
+    const { src, width, height, className, scrollStatus } = this.props;
     return (
       <iframe
         src={src}
-        id={id}
         width={width}
         height={height}
         className={classNames('widget-iframe', className)}
@@ -57,6 +56,5 @@ if (process.env.NODE_ENV !== 'production') {
     height: PropTypes.string,
     className: PropTypes.string,
     scrollStatus: PropTypes.string,
-    id: PropTypes.string,
   };
 }
